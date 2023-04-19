@@ -193,14 +193,14 @@ install_XrayR() {
     echo ""
 
     # 选择协议
-    echo "选择节点类型(默认V2ray)"
+    echo "选择节点类型(默认Shadowsocks)"
     echo ""
     read -p "请输入你使用的协议(V2ray, Shadowsocks, Trojan):" node_type
     [ -z "${node_type}" ]
     
     # 如果不输入默认为V2ray
     if [ ! $node_type ]; then 
-    node_type="V2ray"
+    node_type="Shadowsocks"
     fi
 
     echo "---------------------------"
@@ -221,7 +221,7 @@ install_XrayR() {
 
     # 写入配置文件
     echo "正在尝试写入配置文件..."
-    wget https://cdn.jsdelivr.net/gh/missuo/XrayR-V2Board/config.yml -O /etc/XrayR/config.yml
+    wget https://cdn.jsdelivr.net/gh/jinoogui/XrayR-V2Board/config.yml -O /etc/XrayR/config.yml
     sed -i "s/NodeID:.*/NodeID: ${node_id}/g" /etc/XrayR/config.yml
     sed -i "s/NodeType:.*/NodeType: ${node_type}/g" /etc/XrayR/config.yml
     sed -i "s/CertDomain:.*/CertDomain: \"${node_domain}\"/g" /etc/XrayR/config.yml
